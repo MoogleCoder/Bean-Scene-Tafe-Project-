@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BeanSeans.Data.Reservation>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-area="" asp-controller="Reservation" asp-action="Sittings">Place Reservation</a>
+<br />
+<h1>My Reservation</h1>
+<br />
+<p>Total Reservation: @Model.ToList().Count</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Reservation Id
+            </th>
+            <th>
+                Sitting Type
+            </th>
+
+            <th>
+                Start Time
+            </th>
+            <th>
+                End Time
+            </th>
+            <th>
+                Guest
+            </th>
+            <th>
+                Notes
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Sitting.SittingType.Name
+                </td>
+
+                <td>
+                    @item.StartTime.ToString("MM/dd/yyyy hh:mm tt")
+                </td>
+                <td>
+                    @item.EndTime.ToString("MM/dd/yyyy hh:mm tt")
+                </td>
+                <td>
+                    @item.Guest
+                </td>
+                <td>
+                    @item.Note
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,2 @@
+Opening Debuggin in Sittings
+sittingId: 3 sittingTypeName: Dinner sitting capacity: 100

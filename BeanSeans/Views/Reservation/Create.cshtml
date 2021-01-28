@@ -1,0 +1,95 @@
+﻿@model BeanSeans.Models.Reservation.CreateReservation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-4">Place Reservation</h1>
+<p>Start Time</p>
+<p id="sitting-start">@Model.Sitting.Start.ToString("MM/dd/yyyy hh:mm tt")</p>
+<p>End Time</p>
+<p id="sitting-end">@Model.Sitting.End.ToString("MM/dd/yyyy hh:mm tt")</p>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (User.IsInRole("Manager"))
+            {
+                <div class="form-group">
+                    <label class="control-label">Source</label>
+                    <select asp-for="SourceId" class="form-control" asp-items="Model.SourceOptions"></select>
+                    <span asp-validation-for="SourceId" class="text-danger"></span>
+                </div>
+
+            }
+            @if (!User.Identity.IsAuthenticated || User.IsInRole("Manager")) //!--user is not login
+            {
+                <div class="form-group">
+                    <label asp-for="Person.FirstName" class="control-label"></label>
+                    <input asp-for="Person.FirstName" class="form-control" />
+                    <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.LastName" class="control-label"></label>
+                    <input asp-for="Person.LastName" class="form-control" />
+                    <span asp-validation-for="Person.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.Email" class="control-label"></label>
+                    <input asp-for="Person.Email" class="form-control" />
+                    <span asp-validation-for="Person.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.Phone" class="control-label"></label>
+                    <input asp-for="Person.Phone" class="form-control" />
+                    <span asp-validation-for="Person.Phone" class="text-danger"></span>
+                </div>
+            }
+
+            <div class="form-group">
+                <label asp-for="Guest" class="control-label"></label>
+                <input asp-for="Guest" class="form-control" />
+                <span asp-validation-for="Guest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            @Html.HiddenFor(m => m.Sitting.Id)
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+            {
+                //happens when we show the Create first, HttpGet//IF it is member just fill in the blanks
+
+
+                @Html.HiddenFor(m => m.Person.Id)
+                @Html.HiddenFor(m => m.Person.FirstName)
+                @Html.HiddenFor(m => m.Person.LastName)
+                @Html.HiddenFor(m => m.Person.Email)
+                @Html.HiddenFor(m => m.Person.Phone)
+
+
+
+
+            }
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BeanSeans.Data.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br/>
+<h1>Reservation Details</h1>
+<br/>
+<a asp-action="sittings">Create New Reservation</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Person</th>
+            <th>Sitting Type</th>
+            <th>Status</th>
+            <th>Guest</th>
+            <th>Start Time</th>
+            <th>Duration</th>
+            <th>Tables</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Person.FirstName)
+                    @Html.DisplayFor(modelItem => item.Person.LastName)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sitting.SittingType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Guest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration) Mins
+                </td>
+
+                <td>
+                    @for (int i = 0; i < item.TableReservations.ToArray().Length; i++)
+                    {<div>
+                            @Html.DisplayFor(modelItem => item.TableReservations[i].Table.Name)
+                        </div>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if (User.IsInRole("Manager"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Tables" asp-route-id="@item.Id">Tables</a>
+
+                    }
+                </td>
+
+
+                <input type="hidden" asp-for="@item.PersonId" />
+                <input type="hidden" asp-for="@item.SittingId" />
+                <input type="hidden" asp-for="@item.SourceId" />
+                <input type="hidden" asp-for="@item.StatusId" />
+                <input type="hidden" asp-for="@item.Id" />
+
+
+
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,32 @@
+Microsoft.EntityFrameworkCore.Infrastructure: Information: Entity Framework Core 3.1.9 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Microsoft.EntityFrameworkCore.Database.Command: Information: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Capacity], [s].[End], [s].[RestuarantId], [s].[SittingTypeId], [s].[Start], [s0].[Id], [s0].[Name]
+FROM [Sittings] AS [s]
+INNER JOIN [SittingTypes] AS [s0] ON [s].[SittingTypeId] = [s0].[Id]
+WHERE [s].[Id] = @__id_0
+Opening Debuggin in Sittings
+sittingId: 3 sittingTypeName: Dinner sitting capacity: 100
+Microsoft.EntityFrameworkCore.Infrastructure: Information: Entity Framework Core 3.1.9 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Microsoft.EntityFrameworkCore.Database.Command: Information: Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Capacity], [s].[End], [s].[RestuarantId], [s].[SittingTypeId], [s].[Start], [s0].[Id], [s0].[Name]
+FROM [Sittings] AS [s]
+INNER JOIN [SittingTypes] AS [s0] ON [s].[SittingTypeId] = [s0].[Id]
+WHERE [s].[Id] = @__id_0
+Opening Debuggin in Sittings
+sittingId: 2 sittingTypeName: Lunch sitting capacity: 100
+Microsoft.EntityFrameworkCore.Infrastructure: Information: Entity Framework Core 3.1.9 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Microsoft.EntityFrameworkCore.Database.Command: Information: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Capacity], [s].[End], [s].[RestuarantId], [s].[SittingTypeId], [s].[Start], [s0].[Id], [s0].[Name]
+FROM [Sittings] AS [s]
+INNER JOIN [SittingTypes] AS [s0] ON [s].[SittingTypeId] = [s0].[Id]
+WHERE [s].[Id] = @__id_0
+Opening Debuggin in Sittings
+sittingId: 1 sittingTypeName: Breakfast sitting capacity: 200
+Microsoft.EntityFrameworkCore.Infrastructure: Information: Entity Framework Core 3.1.9 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Microsoft.EntityFrameworkCore.Database.Command: Information: Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Capacity], [s].[End], [s].[RestuarantId], [s].[SittingTypeId], [s].[Start], [s0].[Id], [s0].[Name]
+FROM [Sittings] AS [s]
+INNER JOIN [SittingTypes] AS [s0] ON [s].[SittingTypeId] = [s0].[Id]
+WHERE [s].[Id] = @__id_0
+Opening Debuggin in Sittings
+sittingId: 8 sittingTypeName: Lunch sitting capacity: 40

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BeanSeans.Data.Reservation>
+@{
+    ViewData["Title"] = "GetReport";
+}
+<br/>
+
+<h1 class="display-4">Monthly Report - @DateTime.Now.ToString("yyyy MMMM")</h1>
+<hr />
+<br />  
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Total reservations: 
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Reser
+        </dd>
+
+        <dt class="col-sm-2">Total Guest: </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Guest
+        </dd>
+        <dt class="col-sm-2">
+            Total cancelled reservations: 
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Cancelled
+        </dd>
+        <dt class="col-sm-2">
+            Reservation by Online:
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Online
+        </dd>
+        <dt class="col-sm-2">
+            Reservation by Mobile:
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Mobile
+        </dd>
+        <dt class="col-sm-2">
+            Reservation by Email:
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Email
+        </dd>
+        <dt class="col-sm-2">
+            Reservation by Phone :
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.phone
+        </dd>
+       
+    </dl>
+</div>
+<div>
+    <a asp-controller="reservation" asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model BeanSeans.Areas.Staff.Models.Area.Tables
+@{          ViewData["Title"] = "Tables";
+}
+
+<h1>Tables</h1>
+
+<form method="post" asp-action="Tables">
+
+    @{//declare string area
+        string area = ""; }
+    <!--Not for eeach but for loop for the TableOptions[i]
+        30 TableOptions left-->
+    @for (int i = 0; i < Model.TableDetails.Count; i++)
+    {
+        //check if the area name is same like previous one. then we don't make it
+        if (Model.TableDetails[i].AreaName != area)
+        {
+            area = Model.TableDetails[i].AreaName;
+            <h6>@Model.TableDetails[i].AreaName</h6>
+        }
+
+
+        <label>@Model.TableDetails[i].TableName </label>
+        <!--the table is selected now-->
+        <input type="checkbox" asp-for="@Model.TableDetails[i].Selected" />
+        <input type="hidden" asp-for="@Model.TableDetails[i].TableId" />
+        <input type="hidden" asp-for="@Model.TableDetails[i].TableName" />
+        <input type="hidden" asp-for="@Model.TableDetails[i].AreaName" />
+
+
+        <br />     
+        }
+
+    <input type="hidden" asp-for="@Model.Reservation.Id" />
+
+    <input type="submit" value="Save" class="btn btn-primary" />
+
+</form>

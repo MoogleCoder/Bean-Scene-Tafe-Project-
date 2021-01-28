@@ -1,0 +1,42 @@
+﻿@model BeanSeans.Data.Sitting
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="display-4">Sitting Details</h1>
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SittingType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SittingType.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Start.ToString("MM/dd/yyyy hh:mm tt")
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.End)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.End.ToString("MM/dd/yyyy hh:mm tt")
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

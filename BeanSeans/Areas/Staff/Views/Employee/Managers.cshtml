@@ -1,0 +1,53 @@
+﻿@model List<BeanSeans.Areas.Staff.Models.Staff.ManagersVM>
+@{
+    ViewData["Title"] = "Managers";
+}
+<br/>
+
+<h1 class="display-4">Managers</h1>
+
+<br/>
+
+@foreach (var m in Model)
+{
+    <div style="padding:5px; border:1px solid black;">
+        <div>@m.User.UserName</div>
+
+
+        <div>
+            @foreach (var r in m.Roles)
+            {
+                <div>@r</div>
+            }
+        </div>
+
+
+        <div>
+            @if (m.Roles.Any(r => r == "Manager"))
+            {
+                <form asp-action="DemoteManager">
+                    <input type="hidden" name="UserId" id="userId" value="@m.User.Id" /> <!--name has to match wiht what I want to post-->
+                    <input type="submit" value="Demote" class="btn btn-danger" />
+                </form>
+
+
+            }
+            else
+            {
+                <form asp-action="PromoteManager">
+                    <input type="hidden" name="UserId" id="userId" value="@m.User.Id" /> <!--name has to match wiht what I want to post-->
+                    <input type="submit" value="Promote" class="btn btn-success" />
+                </form>
+
+
+            }
+
+        </div>
+
+
+
+
+    </div>
+
+
+}

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <br/>
+
+    <h1 class="display-4" id="beanSceneTitle">Welcome to BeanScene</h1>
+    <br/>
+    <div class="container">
+        <div class="row row-cols-2">
+
+            <div class="col-lg-6 d-lg-block d-none">
+                <img src="~/beans/monkgogi-samson-C0ba0-z1ZoI-unsplash.jpg" alt="beans3" height="300" width="555"/>
+            </div>
+            <div class="col-lg-6 d-lg-block d-none">
+                <img src="~/beans/tijana-drndarski-oD7H_J-vJm4-unsplash.jpg" alt="beans4" height="300" width="555" />
+            </div>
+            <div class="col-lg-6 d-lg-block d-none">
+                <img src="~/beans/jessica-ruscello-8walmVeW47A-unsplash.jpg" alt="beans2" height="300" width="555" />
+            </div>
+            <div class="col-lg-6 d-lg-block d-none">
+                <img src="~/beans/milada-vigerova-FW7Amhh_B8A-unsplash.jpg" alt="beans2" height="300" width="555" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{ 
+    <script>
+        let domElement = document.getElementById("beanSceneTitle");
+        domElement.bounceInDown(500);
+        $("#beanSceneTitle").animationName(500);
+
+    </script>
+}
+
+

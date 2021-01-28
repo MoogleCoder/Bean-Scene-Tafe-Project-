@@ -1,0 +1,94 @@
+﻿@model BeanSeans.Data.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Reservation Confirm</h1>
+
+<div>
+    <h4>Reservation has been made successfully!</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Person.FirstName)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Person.FirstName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Person.LastName)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Person.LastName)
+        </dd>
+
+        <dt class="col-sm-2">
+            Sitting Name
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sitting.SittingType.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Source.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Model.StartTime.ToString("MM/dd/yyyy hh:mm tt")
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Guest)
+        </dt>
+
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Guest)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index">Back to List</a>
+</div>

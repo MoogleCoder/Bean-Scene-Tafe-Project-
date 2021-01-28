@@ -1,0 +1,83 @@
+﻿@model BeanSeans.Data.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br/>
+<h1 class="display-4">Details of Reservation Id: @Model.Id  </h1>
+<br/>
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Sitting Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sitting.SittingType.Name)
+        </dd>
+
+        <dt class="col-sm-2">Person Name</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Person.FirstName)
+            @Html.DisplayFor(model => model.Person.LastName)
+
+        </dd>
+        <dt class="col-sm-2">
+            Status
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Reservation Source
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Source.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Reserved Table(s)
+        </dt>
+        <dd class="col-sm-10">
+            @for (int i = 0; i < Model.TableReservations.ToArray().Length; i++)
+            {
+                <div>
+                    @Html.DisplayFor(model => model.TableReservations[i].Table.Name)
+
+                </div>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Guest
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Guest)
+        </dd>
+        <dt class="col-sm-2">
+            Start Time
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            End Time
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+        <dt class="col-sm-2">
+            Notes
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<input type="hidden" asp-for="@Model.PersonId" />
+
